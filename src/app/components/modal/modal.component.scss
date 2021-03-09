@@ -1,0 +1,130 @@
+.kg-modal{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    // color:rgba($dark, 0.65);
+    font-size:1rem;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    list-style: none;
+    font-feature-settings: "tnum";
+    position: relative;
+    // display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    width: auto;
+    margin:0 auto;
+    padding-bottom: 24px;
+}
+
+.kg-modal-wrap{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    // overflow: auto;
+    outline: 0;
+    -webkit-overflow-scrolling:touch;
+}
+.kg-modal-logo{
+    height: 100px;
+}
+.kg-modal-title{
+    margin: 0;
+    color:rgba(black,.85);
+    font-weight: 500;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 22px;
+}
+.kg-modal-content{
+    position: relative;
+    left: 25%;
+    width: 500px;
+    // transform: translate(-25%,-25%) !important;
+    margin: 20px;
+    background-color: white;
+    // background-clip: padding-box;
+    border: 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.15);
+    overflow: inherit;
+    max-height: 90vh;
+    transform: translateY(50%)
+}
+.kg-modal-close{
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 23px;
+    right: 22px;
+    z-index: 10;
+    padding: 5px;
+    color:white;
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+    background: black;
+    border: 0;
+    outline: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    &-x{
+        display: block;
+        color:white;
+        font-size: 0.7rem;
+        font-style: normal;
+        line-height: 1;
+        text-align: center;
+        text-transform: none;
+        text-rendering: auto;
+    }
+    &:focus,
+    &:hover{
+        color:rgba(white,.55);
+    }
+}
+.kg-modal-header{
+    padding: 16px 24px;
+    color:black;
+    text-align: center;
+}
+.kg-modal-body{
+    padding:14px;
+    font-size: 1rem;
+    line-height: 1;
+    word-wrap:break-word;
+    text-align: left;
+    max-height: 70vh;
+    overflow: hidden;
+}
+.kg-modal-footer{
+    padding:10px 14px;
+    text-align: center;
+}
+.kg-modal-background{
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background: rgba(0,0,0,.65);
+    z-index: 1000;
+}
+
+.kg-modal-hidden {
+    display: none;
+  }
+
+.clear-icon{
+    position: relative;
+    right: 3px;
+    font-size: 16px;
+    top: -3px;
+}

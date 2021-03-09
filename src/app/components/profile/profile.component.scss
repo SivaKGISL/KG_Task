@@ -1,0 +1,31 @@
+.profile-info {
+    background-color: #ffff;
+}
+
+.img-thumb {
+    height: 40px;
+    width:  40px;
+    border-radius: 10px;
+    padding: none;
+}
+
+.rounded {
+    border-radius: 50%  !important;
+}
+
+.odd-badge {
+    background-color: #fdf4dd !important;
+    color: #f4a425 !important;
+    padding:3px;
+    width: 20px;
+    border: 1px solid rgba(244, 164, 37, .1);
+}
+
+
+.even-badge {
+    background-color: #f5f8fc !important;
+    color: #7697fe !important;
+    padding:3px;
+    width: 20px;
+    border: 1px solid rgba(244, 164, 37, .1);
+}

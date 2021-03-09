@@ -1,0 +1,134 @@
+<app-breadcrumb [breadcrumbList]="breadCrumpList"></app-breadcrumb>
+<main class="container my-3">
+    <div class="tabs">
+        <input type="radio" name="tabs" id="tabone" checked="checked">
+        <label for="tabone" class="label-margin">
+            <i></i>
+            <span>
+                Queu
+            </span>
+        </label>
+        <div class="tab bg-body rounded shadow-sm" cdkDropList (cdkDropListDropped)="drop($event)" *ngIf="patients.length > 0">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <div class="pt-3">
+                        PATIENT
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="pt-3">
+                        CONTACT
+                    </div>
+
+                </div>
+                <div class="col-sm">
+                    <div class="pt-3">
+                        APPOINTMENT
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="pt-3">
+                        WAITED
+                    </div>
+                </div>
+                <div class="col-sm">
+                </div>
+                <div class="col-sm">
+
+                </div>
+            </div>
+            <div class="row row-border bg-white align-items-center" *ngFor="let patient of patients; let index=index; let odd=odd;" cdkDrag>
+                <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+                <div class="col-sm-4">
+                    <app-profile [showBadge]=true [order]="index+1" [badgeOrder]="odd" [image]="patient.image"
+                        [name]="patient.name" [destination]="patient.age"></app-profile>
+                </div>
+                <div class="col-sm">
+                    <div class="pt-3">
+                        {{patient.contact}}
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="pt-3">
+                        {{patient.appointment}}
+                    </div>
+
+                </div>
+                <div class="col-sm">
+                    <div class="">
+                        <span class="badge bg-primary mt-3 ml-3 badge-danger"> {{patient.waited}}</span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="pt-3">
+                        <button type="button" class="btn btn-round text-grey mr-4 fs-5"> <span
+                                class="material-icons text-green fs-5">
+                                moving
+                            </span> Vitals</button>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="pt-3">
+                        <span class="material-icons ">
+                            more_horiz
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="radio" name="tabs" id="tabtwo">
+        <label for="tabtwo" class="label-margin">
+            <i></i>
+            <span>Earlier</span>
+        </label>
+        <div class="tab">
+            <h1>Tab two Content</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div>
+        <input type="radio" name="tabs" id="tabthree">
+        <label for="tabthree" class="label-margin">
+            <i></i>
+            <span>Wait list</span>
+        </label>
+        <div class="tab">
+            <h1>Tab three Content</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div>
+        <input type="radio" name="tabs" id="tabfour">
+        <label for="tabfour" class="label-margin">
+            <i></i>
+            <span>No show</span>
+        </label>
+        <div class="tab">
+            <h1>Tab three Content</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+</main>

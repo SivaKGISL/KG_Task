@@ -1,0 +1,77 @@
+.add-slot{
+    top: 6px;
+    position: relative;
+}
+
+.checkbox-tag {
+    list-style: none;
+    padding: 20px;
+}
+.checkbox-tag{
+  display: inline;
+}
+.checkbox-tag label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 10px;
+    white-space: nowrap;
+    margin: 3px 10px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+.checkbox-tag label {
+    padding: 10px 15px 10px 40px;
+    cursor: pointer;
+}
+
+.checkbox-tag input[type="radio"]:checked + label {
+    border:none;
+    background-color: #508aeb;
+    color: #fff;
+    transition: all .2s;
+}
+
+.checkbox-tag input[type="radio"] {
+  display: absolute;
+}
+.checkbox-tag input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+.checkbox-tag input[type="radio"]:disabled + label{
+  opacity: .5;
+  cursor: not-allowed;
+  transition: all .2s;
+  pointer-events: none;
+}
+.checkbox-tag input[type="radio"] 
++ label:before {
+  height:15px;
+  width:15px;
+  content:"";
+  position:absolute;
+  border-radius: 15px;
+  margin-left:-25px;
+  border: 1px solid grey
+}
+
+.checkbox-tag input[type="radio"]:checked 
++ label:before {
+  height:20px;
+  width:20px;
+  font-family: 'Material Icons';
+  content:"\e5c8";
+  position:absolute;
+  border-radius: 15px;
+  margin-left:-25px;
+  border: none;
+  font-size: 23px;
+}

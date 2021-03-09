@@ -1,0 +1,57 @@
+<ng-template #modalDefaultContent>
+    <ng-content></ng-content>
+</ng-template>
+<div>
+    <div class="kg-modal-background" [style.zIndex]="zIndex"></div>
+    <div class="kg-modal-wrap" [style.zIndex]="zIndex" tabindex="-1" role="dialog">
+        <div #modalContainer class="kg-modal" role="document">
+            <div class="kg-modal-content">
+                <ng-container [ngTemplateOutlet]="modalContent"></ng-container>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #modalContent>
+    <div *ngIf="modalTitle">
+        <div class="kg-modal-header">
+            <button  (click)="closeModal()" class="kg-modal-close" aria-lable="close">
+                <span class="kg-modal-close-x">
+                    <i class="material-icons clear-icon">
+                        clear
+                    </i>
+                </span>
+            </button>
+        </div>
+        <!-- <img src="../../../../assets/images/whizle_Final_logo.png" class="modal-logo"  alt="" *ngIf="brandImage" > -->
+        <div class="kg-modal-title">
+            <ng-container [ngSwitch]="true">
+                <ng-container *ngSwitchCase="isTemplateRef(modalTitle)"  [ngTemplateOutlet]="modalTitle"></ng-container>
+                <ng-container *ngSwitchCase="isEmptyString(modalTitle)" >
+                    <div [innerHTML]="modalTitle"></div>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div class="kg-modal-body">
+            <ng-container #modalBody>
+                <ng-container *ngIf="!isComponent(modalText)" [ngSwitch]="true">
+                    <ng-container *ngSwitchCase="isTemplateRef(modalText)"  [ngTemplateOutlet]="modalText" >
+                    </ng-container>
+                    <ng-container *ngSwitchCase="isEmptyString(modalText)">
+                        <div [innerHTML]="modalText"></div>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault [ngTemplateOutlet]="modalDefaultContent"></ng-container>
+                </ng-container>
+            </ng-container>
+        </div>
+        <div *ngIf="modalFooter" class="kg-modal-footer">
+            <ng-container [ngSwitch]="true">
+                <ng-container *ngSwitchCase="isTemplateRef(modalFooter)" [ngTemplateOutlet]="modalFooter" >
+                </ng-container>
+                <ng-container *ngSwitchCase="isEmptyString(modalFooter)">
+                    <div [innerHTML]="modalFooter"></div>
+                </ng-container>
+            </ng-container>
+        </div>
+
+    </div>
+</ng-template>

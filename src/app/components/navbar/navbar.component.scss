@@ -1,0 +1,42 @@
+.top-navbar {
+    min-height: 70px;
+    background-color: #ffffff !important;
+}
+
+.navbar-brand {
+    background-color: #508aeb;
+    border: none;
+    padding:0;
+    height: 70px;
+    width: 180px;
+    color: #ffffff;
+}
+
+.logo {
+    top: 40%;
+    position: relative;
+    left: 30%;
+    transform: translateX(10px);
+}
+
+.top-nav-bg {
+    background-color: #ffffff;
+}
+
+
+.btn-round {
+    border-radius: 25px;
+    box-shadow: 2px 2px 5px 0px rgba(80, 138, 235, .3);
+    font-weight: 500;
+    padding: 5px 15px;
+}
+
+.container-width {
+    width: 50%
+}
+
+.date-picker {
+    left: -125px;
+    position: relative;
+    top: 11px;
+}

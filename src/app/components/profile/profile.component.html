@@ -1,0 +1,27 @@
+<div class="d-flex text-muted profile-info bg-white pt-3">
+    <span class="material-icons  p-2 " *ngIf="!dragHandle">
+        drag_handle
+    </span>
+
+    <p *ngIf = "showBadge">
+        <span class="badge bg-primary mt-3 ml-3" [class.odd-badge]="badgeOrder" [class.even-badge]="!badgeOrder"> {{order}}</span>
+    </p>
+
+    <img src={{image}} class="img-thumb  mr-2 ml-3" [class.rounded]="rounded" alt="...">
+    <p class="bg-white">
+        <strong class="d-block  bg-white">{{name}}</strong>
+        {{destination}}
+    </p>
+    <ul class="navbar-nav ml-4" *ngIf="showDropDown">
+        <li class="nav-item dropdown m-2">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" >
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

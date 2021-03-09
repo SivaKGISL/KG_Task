@@ -1,0 +1,69 @@
+<app-breadcrumb [breadcrumbList]="breadCrumpList"></app-breadcrumb>
+<main class="container">
+  <div class="row">
+    <div class="col-sm-3 ">
+      <div class="card ">
+        <mat-calendar [selected]="selectedDate" [startAt]="startAt" [minDate]="minDate" [maxDate]="maxDate"
+          [dateFilter]="myDateFilter" (selectedChange)="onSelect($event)" [dateClass]="dateClass">
+        </mat-calendar>
+      </div>
+    </div>
+    <div class="col-sm-9 card">
+      <div class="d-flex text-muted pt-3">
+        <div class="pb-3 small border-bottom w-100">
+          <div class="d-flex justify-content-between align-items-center">
+            <strong class="text-gray-dark">Morning</strong>
+            <button type="button" class="btn btn-link"  (click) ="showModal()"><span class="material-icons add-slot">
+                add
+              </span> Add Slots</button>
+          </div>
+          <span class="d-block">9:00 AM to 12:00PM</span>
+        </div>
+      </div>
+      <div class="checkbox-tag">
+        <input type="radio" id="cb1" value="cb1" name="time" disabled checked><label for="cb1">Check box 1</label>
+        <input type="radio" id="cb2" value="cb2" name="time" checked><label for="cb2">Check box 2</label>
+        <input type="radio" id="cb3" value="cb3" name="time">
+        <label for="cb3">Check box 3</label>
+      </div>
+      <div class="d-flex text-muted pt-3">
+        <div class="pb-3 small border-bottom w-100">
+          <div class="d-flex justify-content-between align-items-center">
+            <strong class="text-gray-dark">Morning</strong>
+            <button type="button" class="btn btn-link" (click) ="showModal()"><span class="material-icons add-slot">
+                add
+              </span> Add Slots</button>
+          </div>
+          <span class="d-block">9:00 AM to 12:00PM</span>
+        </div>
+      </div>
+      <div class="checkbox-tag">
+        <input type="radio" id="cb4" value="cb1" name="time1"  checked><label for="cb4">Check box 1</label>
+        <input type="radio" id="cb5" value="cb2" name="time1" ><label for="cb5">Check box 2</label>
+        <input type="radio" id="cb6" value="cb3" name="time1">
+        <label for="cb6">Check box 3</label>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<ng-template #modalHeader>
+  <p>Appointments</p>
+</ng-template>
+<ng-template #modalContent>
+  <div class="row">
+    <div class="col-6">
+      <ngx-material-timepicker #picker></ngx-material-timepicker>
+      <label for="from-time" class="form-label">From time</label>
+      <input [ngxTimepicker]="picker" id="from-time" class="form-control" placeholder="First name" aria-label="First name">
+    </div>
+    <div class="col-6">
+      <label for="to-time" class="form-label">To time</label>
+      <input type="time" id="to-time" class="form-control" placeholder="Last name" aria-label="Last name">
+    </div>
+  </div>
+</ng-template>
+<ng-template #modalFooter>
+  <p> works</p>
+</ng-template>

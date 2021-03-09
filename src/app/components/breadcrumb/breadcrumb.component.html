@@ -1,0 +1,5 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active h5" *ngFor="let item of breadcrumbList" routerLink="item.route" routerLinkActive="router-link-active"  aria-current="page">{{item.name}}</li>
+    </ol>
+</nav>

@@ -1,0 +1,39 @@
+
+<header class="navbar navbar-light sticky-top flex-md-nowrap p-0 shadow top-navbar">
+    <a class="navbar-brand" href="#">
+      <span class="logo">brand</span>
+    </a>
+    <div class="container-fluid top-nav-bg container-width">
+        <app-profile [dragHandle]=true image={{image}} [rounded]=false [showDropDown] = true name ="Nishanth Clinician" destination="Kids care Clinic"></app-profile>
+
+        <mat-form-field class="date-picker" appearance="legacy">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-icon matPrefix>event_note</mat-icon>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
+      <button type="button" class="btn btn-round text-blue mr-4" (click) ="routeToAppointment()" >Appointments</button>
+      <button type="button" class="btn btn-round text-blue mr-4">Walk-In</button>
+      <a class="nav-link  mr-4" href="#" tabindex="-1" aria-disabled="true"><span class="material-icons">settings</span></a> 
+      
+  </header>
