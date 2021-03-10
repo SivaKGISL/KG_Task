@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const  URL  = "mongodb://localhost:27017/KG_TIMESLOT";
+const  URL  = "mongodb://localhost:27017/KG";
 
 mongoose.connect(URL,{
     useNewUrlParser:true,

@@ -92,7 +92,7 @@ handlers.setUsers = (req,res) =>{
             fromTime : requestData.fromTime 
         }
         Model.users.find(filter).then(resData => {
-            if(resData?.length === 0) {
+            if(resData.length === 0) {
                 const model = new Model.users({
                     fromTime: requestData.fromTime,
                     toTime: requestData.toTime

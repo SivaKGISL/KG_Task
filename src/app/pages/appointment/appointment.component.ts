@@ -37,7 +37,7 @@ export class AppointmentComponent implements OnInit {
   calenderHeader = CalenderHeaderComponent;
   fromTime: number = 0;
   toTime: number = 0;
-  datesToBeHighlighted: number[] =[11,15,16];
+  datesToBeHighlighted: number[] =[12,18,22,25];
   added: boolean =  false;
   morningTimeSlot: timeSlot [] = [];
   eveningTimeSlot: timeSlot [] = [];
