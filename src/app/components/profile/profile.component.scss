@@ -29,3 +29,12 @@
     width: 20px;
     border: 1px solid rgba(244, 164, 37, .1);
 }
+
+.badge-new {
+    position: absolute;
+    transform: translate(-16px, -22px);
+    border-radius: 0px 0px 5px 0px;
+    color: white;
+    padding: 5px;
+    background-color: #ffbe4e;
+}

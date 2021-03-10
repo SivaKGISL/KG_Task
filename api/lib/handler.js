@@ -34,6 +34,21 @@ handlers.setAppointments = (req,res) =>{
     })
 };
 
+handlers.process = async (req, res) => {
+       Model.users.find({}).then((users) => {
+        Model.appointment.find({}).then((appointment) => {
+            console.log('users',users);
+            console.log('appointment',appointment);
+            if (users.length === 0) {
+                Model.users.create(...require("../data/users.json"));
+              }
+              if (appointment.length === 0) {
+                  Model.appointment.create(...require("../data/appointments.json"));
+              }
+        })
+       });      
+}
+
 // appointments - get
 // Required data: fromTime, toTime, currentDate, 
 handlers.getAppointments = (req,res) =>{
@@ -73,20 +88,32 @@ handlers.getUsers = (req,res) =>{
 handlers.setUsers = (req,res) =>{
     const requestData = req.body;
     if(requestData.fromTime && requestData.toTime) {
-        const model = new Model.appointment({
-            fromTime: requestData.fromTime,
-            toTime: requestData.toTime,
-            currentDate: requestData.currentDate,
-            currentTimeStamp:requestData.currentTimeStamp
+        const filter = {
+            fromTime : requestData.fromTime 
+        }
+        Model.users.find(filter).then(resData => {
+            if(resData?.length === 0) {
+                const model = new Model.users({
+                    fromTime: requestData.fromTime,
+                    toTime: requestData.toTime
+                });
+                console.log('sendPostRequest',requestData);
+                model.save().then(data => {
+                    console.log("data === >", data);
+                    res.send(data);
+                }).catch(err => {
+                    res.status(500).send({
+                        message: err.message || "Error in save data"
+                    })
+                })
+            } else {
+                const error = {
+                    error: "Time slot already added"
+                }
+                res.send(error)
+            }
         });
-        model.save().then(data => {
-            console.log("data === >", data);
-            res.send(data);
-        }).catch(err => {
-            res.status(500).send({
-                message: err.message || "Error in save data"
-            })
-        })
+       
     }
 };
 

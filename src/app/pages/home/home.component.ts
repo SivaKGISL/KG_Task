@@ -1,6 +1,6 @@
-import { DataService } from './../../services/data.service';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 interface patients {
   name: string,
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
 
 
   getAppointments() {
-    this.dataService.sendGetRequest( 'users').subscribe((res: any) => {
+    this.dataService.sendGetRequest( 'appointments').subscribe((res: any) => {
       this.patients = res;
       console.log("result",this.patients);
     })
@@ -40,6 +40,14 @@ export class HomeComponent implements OnInit {
   
   drop(event: CdkDragDrop<string[]> | any) {
     moveItemInArray(this.patients, event.previousIndex, event.currentIndex);
+  }
+
+  showNewBadge(index: number): boolean {
+    if(index === 0) {
+      return true;
+    } else {
+      return false
+    }
   }
 
 }

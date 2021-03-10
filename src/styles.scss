@@ -42,10 +42,80 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
+$font-family: "kg-icon" !default;
+$font-path: "./assets/fonts" !default;
 
+$kg-caleder: "\e900";
+$kg-cog: "\e901";
+$kg-drag: "\e902";
+$kg-evening: "\e903";
+$kg-morning: "\e904";
+$kg-vitals: "\e905";
+
+
+@font-face {
+    font-family: '#{$font-family}';
+    src:  url('#{$font-path}/#{$font-family}.eot?3i5qax');
+    src:  url('#{$font-path}/#{$font-family}.eot?3i5qax#iefix') format('embedded-opentype'),
+      url('#{$font-path}/#{$font-family}.ttf?3i5qax') format('truetype'),
+      url('#{$font-path}/#{$font-family}.woff?3i5qax') format('woff'),
+      url('#{$font-path}/#{$font-family}.svg?3i5qax##{$font-family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+  }
+  
+  [class^="kg-"], [class*=" kg-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: '#{$font-family}' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .kg-caleder {
+    &:before {
+      content: $kg-caleder; 
+    }
+  }
+  .kg-cog {
+    &:before {
+      content: $kg-cog; 
+    }
+  }
+  .kg-drag {
+    &:before {
+      content: $kg-drag; 
+    }
+  }
+  .kg-evening {
+    &:before {
+      content: $kg-evening; 
+    }
+  }
+  .kg-morning {
+    &:before {
+      content: $kg-morning; 
+    }
+  }
+  .kg-vitals {
+    &:before {
+      content: $kg-vitals; 
+    }
+  }
+  
+  
 
 .text-blue {
-    color: #508aeb;
+    color: #508aeb !important;
+    font-size: 15px;
 }
 
 .text-grey  {
@@ -71,6 +141,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-calendar-previous-button {
     transform: translateX(-170px);
+}
+
+.mat-datepicker-input {
+    margin-left: 10px !important;
 }
 
 .card {

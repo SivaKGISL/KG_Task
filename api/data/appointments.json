@@ -1,0 +1,49 @@
+[{
+  "name": "Siva",
+  "contact": "9629350999",
+  "appointment": "05:10 PM",
+  "waited": "30 Min",
+  "age": "Male 28yr",
+  "image": "https://i.pravatar.cc/150?img=57",
+  "status": "queu"
+},{
+  "name": "Sasi",
+  "contact": "9095844152",
+  "appointment": "06:00 PM",
+  "waited": "15 Min",
+  "age": "Male 25yr",
+  "image": "https://i.pravatar.cc/150?img=51",
+  "status": "queu"
+},{
+  "name": "Sathiya",
+  "contact": "9489072273",
+  "appointment": "09:10 PM",
+  "waited": "10 Min",
+  "age": "Male 30yr",
+  "image": "https://i.pravatar.cc/150?img=47",
+  "status": "queu"
+},{
+  "name": "Deva",
+  "contact": "7598447472",
+  "appointment": "10:10 PM",
+  "waited": "05 Min",
+  "age": "Male 28yr",
+  "image": "https://i.pravatar.cc/150?img=44",
+  "status": "queu"
+},{
+  "name": "Vetrive",
+  "contact": "97513391l16",
+  "appointment": "07:43 PM",
+  "waited": "10Mins",
+  "age": "Male 26yr",
+  "image": "https://i.pravatar.cc/150?img=10",
+  "status": "queu"
+},{
+  "name": "Ajith",
+  "contact": "9751339116",
+  "appointment": "07:43 PM",
+  "waited": "10Mins",
+  "age": "Male 33yr",
+  "image": "https://i.pravatar.cc/150?img=10",
+  "status": "queu"
+}]

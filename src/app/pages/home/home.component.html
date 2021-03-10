@@ -5,7 +5,7 @@
         <label for="tabone" class="label-margin">
             <i></i>
             <span>
-                Queu
+               {{patients.length}}  <i class="desc">Queu</i> 
             </span>
         </label>
         <div class="tab bg-body rounded shadow-sm" cdkDropList (cdkDropListDropped)="drop($event)" *ngIf="patients.length > 0">
@@ -40,7 +40,7 @@
             <div class="row row-border bg-white align-items-center" *ngFor="let patient of patients; let index=index; let odd=odd;" cdkDrag>
                 <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
                 <div class="col-sm-4">
-                    <app-profile [showBadge]=true [order]="index+1" [badgeOrder]="odd" [image]="patient.image"
+                    <app-profile [newItem]="showNewBadge(index)" [showBadge]=true [order]="index+1" [badgeOrder]="odd" [image]="patient.image"
                         [name]="patient.name" [destination]="patient.age"></app-profile>
                 </div>
                 <div class="col-sm">
@@ -62,8 +62,7 @@
                 <div class="col-sm-2">
                     <div class="pt-3">
                         <button type="button" class="btn btn-round text-grey mr-4 fs-5"> <span
-                                class="material-icons text-green fs-5">
-                                moving
+                                class="kg-vitals text-green fs-5">
                             </span> Vitals</button>
                     </div>
                 </div>
@@ -79,7 +78,9 @@
         <input type="radio" name="tabs" id="tabtwo">
         <label for="tabtwo" class="label-margin">
             <i></i>
-            <span>Earlier</span>
+            <span>
+               2  <i class="desc">Earlier</i> 
+            </span>
         </label>
         <div class="tab">
             <h1>Tab two Content</h1>
@@ -97,7 +98,9 @@
         <input type="radio" name="tabs" id="tabthree">
         <label for="tabthree" class="label-margin">
             <i></i>
-            <span>Wait list</span>
+            <span>
+                7 <i class="desc">Wait list</i> 
+            </span>
         </label>
         <div class="tab">
             <h1>Tab three Content</h1>
@@ -115,7 +118,9 @@
         <input type="radio" name="tabs" id="tabfour">
         <label for="tabfour" class="label-margin">
             <i></i>
-            <span>No show</span>
+            <span>
+                4 <i class="desc">No show</i> 
+            </span>
         </label>
         <div class="tab">
             <h1>Tab three Content</h1>

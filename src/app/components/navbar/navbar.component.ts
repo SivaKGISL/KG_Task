@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   image = "https://i.pravatar.cc/150?img=3";
+  currentDate = new Date().toISOString();
   constructor(private route: Router) { }
 
   routeToAppointment() {

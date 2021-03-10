@@ -25,7 +25,7 @@ export class DataService {
     return this.http.get(serviceEndPoint, httpOptions)
   }
   
-  sendRequest(body: any,endPoint?: string, method: 'get'| 'post' = 'post') {
+  sendPostRequest(body: any,endPoint?: string) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',

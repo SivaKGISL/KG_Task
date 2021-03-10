@@ -11,18 +11,9 @@ mongoose.connect(URL,{
     process.exit();
 });
 
-const appointmentScheme =new mongoose.Schema({
-    fromTime :String,
-    toTime:String,
-    currentTimeStamp: Number,
-    currentDate:String
-},{
-    timestamps:true,
-    collection: 'APPOINTMENTS',
-    versionKey: false
-});
 
-const userScheme =new  mongoose.Schema({
+
+const appointmentScheme  =new mongoose.Schema({
     name :String,
     contact:String,
     appointment:String,
@@ -32,12 +23,23 @@ const userScheme =new  mongoose.Schema({
     status: String
 },{
     timestamps:true,
+    collection: 'APPOINTMENTS',
+    versionKey: false
+});
+
+
+const userScheme =new  mongoose.Schema({
+    fromTime :String,
+    toTime:String,
+},{
+    timestamps:true,
     collection: 'USERS'
 });
 
-var appointment = mongoose.model('Appointment',appointmentScheme);
-var users = mongoose.model('USERS', userScheme)
+var appointment =  mongoose.model('APPOINTMENTS',appointmentScheme); 
+var users =  mongoose.model('USERS', userScheme);
 module.exports = {
     appointment:appointment,
     users: users
 }
+

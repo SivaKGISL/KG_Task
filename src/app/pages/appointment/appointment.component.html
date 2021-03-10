@@ -10,10 +10,11 @@
     </div>
     <div class="col-sm-9 card">
       <div class="d-flex text-muted pt-3">
-        <div class="pb-3 small border-bottom w-100">
+        <span class="kg-morning"></span>
+        <div class="ml-3 pb-3 small border-bottom w-100">
           <div class="d-flex justify-content-between align-items-center">
             <strong class="text-gray-dark">Morning</strong>
-            <button type="button" class="btn btn-link"  (click) ="showModal()"><span class="material-icons add-slot">
+            <button type="button" class="btn btn-link"  (click) ="showModal(9, 12)"><span class="material-icons add-slot">
                 add
               </span> Add Slots</button>
           </div>
@@ -21,27 +22,26 @@
         </div>
       </div>
       <div class="checkbox-tag">
-        <input type="radio" id="cb1" value="cb1" name="time" disabled checked><label for="cb1">Check box 1</label>
-        <input type="radio" id="cb2" value="cb2" name="time" checked><label for="cb2">Check box 2</label>
-        <input type="radio" id="cb3" value="cb3" name="time">
-        <label for="cb3">Check box 3</label>
+        <span *ngFor="let time of morningTimeSlot; let i=index">
+          <input type="radio" id={{i}} value="cb1" name="time" [disabled]= 'time.disabled' checked  (click)="showAppointmentModal(time?.fromTime, time?.toTime)"><label for={{i}} >{{time?.fromTime}}</label>
+        </span>
       </div>
       <div class="d-flex text-muted pt-3">
-        <div class="pb-3 small border-bottom w-100">
+        <span class="kg-evening"></span>
+        <div class="ml-3 pb-3 small border-bottom w-100">
           <div class="d-flex justify-content-between align-items-center">
-            <strong class="text-gray-dark">Morning</strong>
-            <button type="button" class="btn btn-link" (click) ="showModal()"><span class="material-icons add-slot">
+            <strong class="text-gray-dark">Evening</strong>
+            <button type="button" class="btn btn-link" (click) ="showModal(17,21)"><span class="material-icons add-slot">
                 add
               </span> Add Slots</button>
           </div>
-          <span class="d-block">9:00 AM to 12:00PM</span>
+          <span class="d-block">05:00 PM to 09:00 PM</span>
         </div>
       </div>
       <div class="checkbox-tag">
-        <input type="radio" id="cb4" value="cb1" name="time1"  checked><label for="cb4">Check box 1</label>
-        <input type="radio" id="cb5" value="cb2" name="time1" ><label for="cb5">Check box 2</label>
-        <input type="radio" id="cb6" value="cb3" name="time1">
-        <label for="cb6">Check box 3</label>
+        <span *ngFor="let time of eveningTimeSlot; let i=index">
+          <input type="radio" id={{i+50}} value="cb1" name="time1" [disabled]= 'time.disabled'  checked (click)="showAppointmentModal(time?.fromTime, time?.toTime)"><label for={{i+50}} >{{time?.fromTime}}</label>
+        </span>
       </div>
     </div>
   </div>
@@ -49,21 +49,86 @@
 
 
 <ng-template #modalHeader>
-  <p>Appointments</p>
+  <p>TimeSlot</p>
 </ng-template>
 <ng-template #modalContent>
-  <div class="row">
+  <form [formGroup]="timeSlotForm" >
+  <div class="row" *ngIf="!added">
     <div class="col-6">
-      <ngx-material-timepicker #picker></ngx-material-timepicker>
       <label for="from-time" class="form-label">From time</label>
-      <input [ngxTimepicker]="picker" id="from-time" class="form-control" placeholder="First name" aria-label="First name">
+      <input type="time"   id="from-time" formControlName="fromTime" class="form-control"  min="09:00" max= "21:00"  placeholder="First name" aria-label="First name">
     </div>
     <div class="col-6">
       <label for="to-time" class="form-label">To time</label>
-      <input type="time" id="to-time" class="form-control" placeholder="Last name" aria-label="Last name">
+      <input type="time" id="to-time" formControlName="toTime" class="form-control disabled" min="09:00" max= "21:00" placeholder="Last name" aria-label="Last name" >
+    </div>
+    <div class="col-12 pt-3">
+      <p class='text-danger' *ngIf="timeSlotForm.hasError('minMax')">Please pick the time slot between {{changeHourFormat(fromTime)}} to {{changeHourFormat(toTime)}}</p>
+    </div>
+    <div class="col-12 pt-3">
+      <p class='text-danger' *ngIf="timeSlotForm.hasError('timeSlotExist')">Time slot already added please add other time</p>
     </div>
   </div>
+  <div class="row align-items-center" *ngIf="added">
+    <div class="col-12">      <p class='text-success' >Time slot added successfully </p>
+    </div>
+  </div>
+  </form>
 </ng-template>
 <ng-template #modalFooter>
-  <p> works</p>
+  <div class="row align-items-center" *ngIf="!added">
+    <div class="col-12"><button class="btn btn-primary" (click) ="onSubmit()">Add TimeSlot</button></div>
+  </div>
+</ng-template>
+
+
+<ng-template #modalAppointmentHeader>
+  <p>Appointment</p>
+</ng-template>
+<ng-template #modalAppointmentContent>
+  <form [formGroup]="appointmentForm" >
+  <div class="row" *ngIf="!added">
+    <div class="col-12 pt-4">
+      <label for="name" class="form-label">Name</label>
+      <input type="text"   id="name" formControlName="name" class="form-control"  min="09:00" max= "21:00"  placeholder="Name" aria-label="First name">
+    </div>
+    <div class="col-6 pt-4">
+      <label for="contact" class="form-label">Contact</label>
+      <input type="text" id="contact" formControlName="contact" class="form-control disabled" min="09:00" max= "21:00" placeholder="contact" aria-label="Last name" >
+    </div>
+    <div class="col-6 pt-4">
+      <label for="age" class="form-label">Age</label>
+      <input type="number"   id="age" formControlName="age" class="form-control"  min="09:00" max= "21:00"  placeholder="Age" aria-label="First name">
+    </div>
+    <div class="col-3 pt-4">
+      <label for="">Gender :</label>
+    </div>
+    <div class="col-9 pt-4">
+      <div class="form-check form-check-inline">
+        <input class="form-check-input"  formControlName="gender" type="radio" name="gender" id="male" value="Male">
+        <label class="form-check-label" for="male">Male</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" formControlName="gender" type="radio" name="gender" id="Female" value="Female">
+        <label class="form-check-label" for="Female">Female</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input"  formControlName="gender"  type="radio" name="gender" id="others" value="Others" >
+        <label class="form-check-label" for="others">Others</label>
+      </div>
+    </div>
+    <div class="col-12 pt-3">
+      <p class='text-danger' *ngIf="timeSlotForm.invalid">Please provide valid information</p>
+    </div>
+  </div>
+  <div class="row align-items-center" *ngIf="added">
+    <div class="col-12"><p class='text-success' >Appointment added successfully </p>
+    </div>
+  </div>
+  </form>
+</ng-template>
+<ng-template #modalAppointmentFooter>
+  <div class="row align-items-center"  *ngIf="added">
+    <div class="col-12"><button class="btn btn-primary" (click)="onSubmitAppointment()">Add Appointment</button></div>
+  </div>
 </ng-template>

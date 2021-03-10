@@ -4,15 +4,15 @@
       <span class="logo">brand</span>
     </a>
     <div class="container-fluid top-nav-bg container-width">
-        <app-profile [dragHandle]=true image={{image}} [rounded]=false [showDropDown] = true name ="Nishanth Clinician" destination="Kids care Clinic"></app-profile>
+        <app-profile [dragHandle]=true [newItem]=false image={{image}} [rounded]=false [showDropDown] = true name ="Nishanth Clinician" destination="Kids care Clinic"></app-profile>
 
         <mat-form-field class="date-picker" appearance="legacy">
           <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="picker">
+          <input matInput [matDatepicker]="picker" [value] = "currentDate">
           <mat-datepicker-toggle matSuffix [for]="picker">
             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
           </mat-datepicker-toggle>
-          <mat-icon matPrefix>event_note</mat-icon>
+          <span class="kg-caleder" matPrefix></span>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
     </div>
@@ -34,6 +34,6 @@
       </div>
       <button type="button" class="btn btn-round text-blue mr-4" (click) ="routeToAppointment()" >Appointments</button>
       <button type="button" class="btn btn-round text-blue mr-4">Walk-In</button>
-      <a class="nav-link  mr-4" href="#" tabindex="-1" aria-disabled="true"><span class="material-icons">settings</span></a> 
+      <a class="nav-link  mr-4" href="#" tabindex="-1" aria-disabled="true"><span class="kg-cog text-blue"></span></a> 
       
   </header>

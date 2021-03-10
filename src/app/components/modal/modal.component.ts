@@ -10,10 +10,6 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactory
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
   preserveWhitespaces: false,
-// tslint:disable-next-line: use-host-property-decorator
-  // host: {
-  //   'class': 'modal'
-  // }
 })
 export class ModalComponent  implements OnInit {
   private _visible: boolean = false;

@@ -1,8 +1,9 @@
 <div class="d-flex text-muted profile-info bg-white pt-3">
-    <span class="material-icons  p-2 " *ngIf="!dragHandle">
-        drag_handle
+    <span class="badge badge-warning badge-new "  *ngIf="newItem">
+        New
     </span>
-
+    <span class="kg-drag  p-2 " *ngIf="!dragHandle">
+    </span>
     <p *ngIf = "showBadge">
         <span class="badge bg-primary mt-3 ml-3" [class.odd-badge]="badgeOrder" [class.even-badge]="!badgeOrder"> {{order}}</span>
     </p>

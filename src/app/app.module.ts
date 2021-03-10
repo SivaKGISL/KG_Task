@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {  ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatIconModule,
     MatInputModule,
     HttpClientModule,
-    NgxMaterialTimepickerModule
+    NgxMaterialTimepickerModule,
+    ReactiveFormsModule
   ],
   providers: [DataService],
   schemas:[

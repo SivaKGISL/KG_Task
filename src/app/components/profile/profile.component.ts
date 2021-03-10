@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   @Input() order: number = 0;
   @Input() badgeOrder = true;
   @Input() showBadge = false;
+  @Input() newItem = true;
   constructor() { }
 
   ngOnInit(): void {
